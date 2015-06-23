@@ -267,6 +267,7 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                     if ($scope.singleSelection) {
                         ngModelCtrl.$setViewValue(finalObj);
                         $scope.externalEvents.onItemSelect(finalObj);
+                        if ($scope.settings.closeOnSelect) $scope.open = false;
 
                         return;
                     }
@@ -285,6 +286,7 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
                         ngModelCtrl.$setViewValue(copy);
                         $scope.externalEvents.onItemSelect(finalObj);
                     }
+                    if ($scope.settings.closeOnSelect) $scope.open = false;
                 };
 
                 $scope.isChecked = function (id) {
